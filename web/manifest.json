@@ -1,6 +1,6 @@
 {
-    "name": "bloc",
-    "short_name": "bloc",
+    "name": "bloc_w14",
+    "short_name": "bloc_w14",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
