@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
-  CartPage({Key? key}) : super(key: key);
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +22,16 @@ class CartPage extends StatelessWidget {
               height: 50,
               width: 50,
             ),
-          );
-          title:
-          Text('Item Count: $count');
-          trailing:
-          RaisedButton(
-            child: Text('Clear'),
-            color: Theme.of(context).buttonColor,
-            elevation: 1.0,
-            splashColor: Colors.blueGrey,
-            onPressed: () {
-              bloc.clear(giftIndex);
-            },
+            title: Text('Item Count: $count'),
+            trailing: RaisedButton(
+              child: Text('Clear'),
+              color: Theme.of(context).buttonColor,
+              elevation: 1.0,
+              splashColor: Colors.blueGrey,
+              onPressed: () {
+                bloc.clear(giftIndex);
+              },
+            ),
           );
         },
       ),
@@ -42,7 +40,7 @@ class CartPage extends StatelessWidget {
 }
 
 class CartBloc with ChangeNotifier {
-  Map<int, int> _cart = {};
+  final Map<int, int> _cart = {};
 
   Map<int, int> get cart => _cart;
 
@@ -50,7 +48,7 @@ class CartBloc with ChangeNotifier {
     if (_cart.containsKey(index)) {
       _cart[index] = 1;
     } else {
-      _cart[index] = 1;
+      _cart[index] = -1;
     }
     notifyListeners();
   }
